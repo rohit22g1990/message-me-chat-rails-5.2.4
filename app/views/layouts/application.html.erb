@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>MessageMeChatApp</title>
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navigation' %>
+    <div class="ui container">
+      <%= yield %>
+    </div>
   </body>
 </html>
