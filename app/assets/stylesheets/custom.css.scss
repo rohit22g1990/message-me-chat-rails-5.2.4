@@ -1,4 +1,8 @@
 @import "semantic-ui";
 .chatbox {
-    height: 450px;
+    max-height: 400px;
+    overflow: auto;
+}
+.width-auto {
+    width:auto !important
 }

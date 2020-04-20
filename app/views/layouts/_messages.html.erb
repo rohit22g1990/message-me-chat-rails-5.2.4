@@ -1,0 +1,7 @@
+<% flash.each do |name, msg| %>
+  <div class="ui <%= name %> message" <%= "hidden" if !flash.any? %>>
+    <div class="header">
+        <%= msg %>    
+    </div>
+  </div>
+<% end %>

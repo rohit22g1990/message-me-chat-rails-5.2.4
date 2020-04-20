@@ -2,61 +2,42 @@
   <i class="circular orange coffee icon"></i>
   Say Somthing Here!
 </h2>
-
-
 <div class="ui two column grid">
     <div class="twelve wide column">
-        <div class="ui fluid raised card chatbox">
-            <div class="content">
-                <div class="ui feed">
-                    <h4 class="ui header">Followers Activity</h4>
-                    <div class="event">
-                        <div class="content">
-                            <div class="summary">
-                                <a>Elliot Fu</a> added <a>Jenny Hess</a> as a friend
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="content">
-                            <div class="summary">
-                                <a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="content">
-                            <div class="summary">
-                                <a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event">
-                        <div class="content">
-                            <div class="summary">
-                                <a>Christian Rocha</a> signed up for the  site.
-                            </div>
-                        </div>
+        <div class="ui fluid raised card">
+            <div class="content chatbox">
+                <h4 class="ui header">Messages</h4>
+                <div class="ui feed" id="messages">                    
+                    <div class="ui comments" id="message-container">
+                        <%= render @messages %>
                     </div>
                 </div>
             </div>
+            <div class="extra content">
+                <%= form_for(@message, html: {class:"ui reply form", role: "form"}, url: message_path, remote: true ) do |f| %>
+                    <div class="field">
+                        <div class="ui flui icon input">
+                            <%= f.text_field :message, placeholder: "Type your message here" %>
+                            <%= f.button '<i class="arrow orange large alternate circle right icon"></i>'.html_safe, id: "send_button" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
-
-
     <div class="four wide column">
         <div class="ui fluid raised card chatbox">
             <div class="content">
-                <div class="ui inverted vertical menu">
-                <a class="active item">
-                    Home
-                </a>
-                <a class="item">
-                    Messages
-                </a>
-                <a class="item">
-                    Friends
-                </a>
+                <div class="ui inverted vertical menu width-auto">
+                    <a class="active item">
+                        Home
+                    </a>
+                    <a class="item">
+                        Messages
+                    </a>
+                    <a class="item">
+                        Friends
+                    </a>
                 </div>
             </div>
         </div>

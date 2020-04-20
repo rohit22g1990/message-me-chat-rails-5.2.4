@@ -17,6 +17,32 @@
 //= require semantic-ui
 //= require_tree .
 
+MESSAGE = {
+    init: function() {
+        this.bindUI();
+        this.scroll_bottom();
+    },
+
+    bindUI: function() {
+        
+        $('.ui.dropdown').dropdown();
+        
+        $("#new_message").bind("ajax:complete", function(event,xhr,status){
+            $('#message_message').val('');
+        });
+    },
+
+    scroll_bottom: function() {
+        if ($("#messages").length > 0) {
+            $(".chatbox").scrollTop($("#messages")[0].scrollHeight)   
+        }
+    },
+};
+
+
+
 $(document).on("turbolinks:load", function() {
-    $('.ui.dropdown').dropdown();
+    MESSAGE.init();
 })
+
+

@@ -1,0 +1,20 @@
+<div class="ui floating message tiny">
+    <div class="comment tiny">
+        <a class="avatar">
+            <%= gravatar_for(message.user, options: {size:20}) %>
+        </a>
+        <div class="content tiny">
+            
+            <div class="text">
+                <strong><%= message.user.username %> : </strong>
+                <%= message.message %>
+                <p><span class="date">
+                    <small>
+                            - <%= time_ago_in_words(message.updated_at) %> ago                            
+                    </small>
+                </span></p>
+            </div>                        
+        </div>
+    </div>
+</div>
+
